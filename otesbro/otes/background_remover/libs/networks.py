@@ -28,7 +28,7 @@ import numpy as np
 from PIL import Image
 from skimage import io, transform
 
-from libs import strings
+from background_remover.libs import strings
 
 logger = logging.getLogger(__name__)
 
@@ -55,8 +55,8 @@ class U2NET:
     def __init__(self, name="u2net"):
         import torch
         from torch.autograd import Variable
-        from libs.u2net import U2NET as U2NET_DEEP
-        from libs.u2net import U2NETP as U2NETP_DEEP
+        from background_remover.libs.u2net import U2NET as U2NET_DEEP
+        from background_remover.libs.u2net import U2NETP as U2NETP_DEEP
         self.Variable = Variable
         self.torch = torch
         self.U2NET_DEEP = U2NET_DEEP
@@ -72,10 +72,15 @@ class U2NET:
             raise Exception("Unknown u2net model!")
         try:
             if self.torch.cuda.is_available():
-                net.load_state_dict(self.torch.load(os.path.join("models", name, name + '.pth')))
+                print('in networks u2net')
+                print(name)
+                net.load_state_dict(self.torch.load(os.path.join("background_remover", "models", name, name + '.pth')))
+                print('====')
                 net.cuda()
+                print('cuda11')
             else:
-                net.load_state_dict(self.torch.load(os.path.join("models", name, name + '.pth'), map_location="cpu"))
+                print('else')
+                net.load_state_dict(self.torch.load(os.path.join("background_remover", "models", name, name + '.pth'), map_location="cpu"))
         except FileNotFoundError:
             raise FileNotFoundError("No pre-trained model found! Run setup.sh or setup.bat to download it!")
         net.eval()

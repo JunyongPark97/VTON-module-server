@@ -20,14 +20,12 @@ License:
    See the License for the specific language governing permissions and
    limitations under the License.
 """
-import argparse
 import os
 import tqdm
 import logging
-from utils.libs.strings import *
-import utils.libs.preprocessing as preprocessing
-import utils.libs.postprocessing as postprocessing
-from utils.libs.networks import model_detect
+import background_remover.libs.preprocessing as preprocessing
+import background_remover.libs.postprocessing as postprocessing
+from background_remover.libs.networks import model_detect
 
 logging.basicConfig(level=logging.ERROR)
 logger = logging.getLogger(__name__)

@@ -11,19 +11,19 @@ class InputImagesAdmin(admin.ModelAdmin):
     def target_img(self, obj):
         if not obj.target:
             return '-'
-        return mark_safe('<img src="%s" width=120px "/>' % obj.target.url)
+        return mark_safe('<a href= "{}" target="_blank"><img src="{}" width=200px "/></a>'.format(obj.target.url, obj.target.url))
     target_img.short_description = 'target image'
 
     def human_model_img(self, obj):
         if not obj.human_model:
             return '-'
-        return mark_safe('<img src="%s" width=120px "/>' % obj.human_model.url)
+        return mark_safe('<a href= "{}" target="_blank"><img src="{}" width=200px "/></a>'.format(obj.human_model.url, obj.human_model.url))
     human_model_img.short_description = 'human image'
 
     def avatar_img(self, obj):
         if not obj.avatar:
             return '-'
-        return mark_safe('<img src="%s" width=120px "/>' % obj.avatar.url)
+        return mark_safe('<a href= "{}" target="_blank"><img src="{}" width=200px "/></a>'.format(obj.avatar.url, obj.avatar.url))
     avatar_img.short_description = 'avatar image'
 
 
@@ -35,31 +35,31 @@ class ACGPNInputsAdmin(admin.ModelAdmin):
     def nukki_img(self, obj):
         if not obj.nukki:
             return '-'
-        return mark_safe('<img src="%s" width=120px "/>' % obj.nukki.url)
+        return mark_safe('<a href= "{}" target="_blank"><img src="{}" width=200px "/></a>'.format(obj.nukki.url, obj.nukki.url))
     nukki_img.short_description = '누끼'
 
     def nukki_mask_img(self, obj):
         if not obj.nukki_mask:
             return '-'
-        return mark_safe('<img src="%s" width=120px "/>' % obj.nukki_mask.url)
+        return mark_safe('<a href= "{}" target="_blank"><img src="{}" width=200px "/></a>'.format(obj.nukki_mask.url, obj.nukki_mask.url))
     nukki_mask_img.short_description = '누끼 mask'
 
     def warping_mask_img(self, obj):
         if not obj.warping_mask:
             return '-'
-        return mark_safe('<img src="%s" width=120px "/>' % obj.warping_mask.url)
+        return mark_safe('<a href= "{}" target="_blank"><img src="{}" width=200px "/></a>'.format(obj.warping_mask.url, obj.warping_mask.url))
     warping_mask_img.short_description = '워핑마스크'
 
     def human_model_img(self, obj):
         if not obj.human_model:
             return '-'
-        return mark_safe('<img src="%s" width=120px "/>' % obj.human_model.url)
+        return mark_safe('<a href= "{}" target="_blank"><img src="{}" width=200px "/></a>'.format(obj.human_model.url, obj.human_model.url))
     human_model_img.short_description = '입힐 사람 이미지'
 
     def human_segment_img(self, obj):
         if not obj.human_segment:
             return '-'
-        return mark_safe('<img src="%s" width=120px "/>' % obj.human_segment.url)
+        return mark_safe('<a href= "{}" target="_blank"><img src="{}" width=200px "/></a>'.format(obj.human_segment.url, obj.human_segment.url))
     human_segment_img.short_description = '입힐 사람 segmentation'
 
 
@@ -70,7 +70,7 @@ class OutputsAdmin(admin.ModelAdmin):
     def output_img(self, obj):
         if not obj.output:
             return '-'
-        return mark_safe('<img src="%s" width=120px "/>' % obj.output.url)
+        return mark_safe('<a href= "{}" target="_blank"><img src="{}" width=200px "/></a>'.format(obj.output.url, obj.output.url))
     output_img.short_description = '결과'
 
 

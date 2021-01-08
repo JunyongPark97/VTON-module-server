@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'uploader',
     'utils',
     'crispy_forms',
-    "ACGPN",
     'background_remover',
 ]
 

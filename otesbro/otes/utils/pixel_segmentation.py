@@ -4,7 +4,7 @@ import cv2
 import os
 
 
-def mask_3d_255(img_root):
+def mask_3d_255(img_root, save_path):
     # up-cloth = 4 -> 255
     img = Image.open(img_root)
     # img = img.resize((192, 256)) # resize for training
@@ -12,10 +12,8 @@ def mask_3d_255(img_root):
     b = (model_cut == 4)
     c = b.astype(int)
     c[c == 1] = 255
-    path = os.getenv('HOME') + '/Desktop/otesbro/otesbro/otes/ACGPN/DeepFashion_Try_On/Data_preprocessing/test_warped_mask/'
-    name = path + "model_cut.png"
-    cv2.imwrite(name, c)
-    return name
+    cv2.imwrite(save_path, c)
+    return save_path
 
 
 def edge_255(img_root, output_path):

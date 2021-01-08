@@ -5,21 +5,13 @@ import time
 
 
 def human_parser_run_script():
+    print('parse script')
     cwd = os.getcwd()
-    print('-asdasdasd')
-    path = '/home/park/human_parser/human-parser/'
-    # interpreter = '/home/park/anaconda3/envs/otesbro/bin/python'
-    # interpreter = sys.executable
-    # cmd = 'python simple_extractor.py --model-restore "checkpoints/exp-schp-201908261155-lip.pth" --input-dir "inputs" --output-dir "outputs"'
-    # cmd = '{} simple_extractor.py --model-restore "checkpoints/exp-schp-201908261155-lip.pth" --input-dir "inputs" --output-dir "outputs"'.format(interpreter)
+    parser_path = os.path.join(os.getenv('HOME'), 'human_parser', 'human-parser')
+    os.chdir(parser_path)
 
-    # print(interpreter)
-    os.chdir(path)
-
-    # os.system('bash run_hp.sh')
-    subprocess.call('bash run_hp.sh', shell=True)
-    # subprocess.run(cmd, shell=True)
-    # subprocess.call([interpreter, cmd], shell=True)
-    time.sleep(0.5)
-    print('END')
+    os.system('bash run_script.sh')
+    print('asdasdasdas')
     os.chdir(cwd)
+
+    return True

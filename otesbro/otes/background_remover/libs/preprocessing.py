@@ -26,7 +26,7 @@ import time
 import numpy as np
 from PIL import Image
 
-from libs.strings import PREPROCESS_METHODS
+from background_remover.libs.strings import PREPROCESS_METHODS
 
 logger = logging.getLogger(__name__)
 

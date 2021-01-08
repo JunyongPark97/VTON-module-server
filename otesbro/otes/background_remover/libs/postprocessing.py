@@ -22,7 +22,7 @@ License:
 """
 import logging
 from PIL import Image
-from libs.strings import POSTPROCESS_METHODS
+from background_remover.libs.strings import POSTPROCESS_METHODS
 
 logger = logging.getLogger(__name__)
 
